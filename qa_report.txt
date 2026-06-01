@@ -1,0 +1,9 @@
+Total Pages: 74
+Missing Title: 3
+Missing Desc: 4
+Missing H1: 4
+Multiple H1: 0
+Missing Alt Text: 71
+Empty Links (# or empty): 68
+Lorem Ipsum: 0
+Forms without required fields: 0

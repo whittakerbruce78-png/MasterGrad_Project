@@ -1,0 +1,40 @@
+<!-- БЛОК Карта (Иркутск) -->
+<section class="district-info" style="padding: 30px 20px; margin: 30px 0; background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%); border-radius: 12px;">
+  <div class="district-container">
+    <div class="district-grid">
+
+      <!-- Карта (на мобильных идёт первой) -->
+      <div class="map-section" style="display: flex; flex-direction: column; height: 100%; gap: 20px;">
+        <h3 style="font-size: 24px; color: #222; font-weight: 700; margin-top: 0; margin-bottom: 0px; text-align: center;">
+          Наш офис г.Владивосток ул.Жигура 26а
+        </h3>
+        <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.06); flex-grow: 1; position: relative; min-height: 250px;">
+          <a href="https://yandex.ru/maps/63/irkutsk/?ll=104.281822%2C52.281226&z=15" target="_blank" style="display:block; width:100%; height:100%;">
+            <img src="https://static-maps.yandex.ru/1.x/?ll=104.281822,52.281226&size=500,320&z=15&l=map&pt=104.281822,52.281226,pm2blm" alt="Мастер-град.рф на карте Иркутска" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border: 0;">
+          </a>
+        </div>
+      </div>
+
+      <!-- Кнопки (на мобильных идут после карты) -->
+      <div class="buttons-section">
+        <h3 class="district-title" style="font-size: 24px; color: #222; font-weight: 700; margin-top: 0; margin-bottom: 0px; text-align: center;">Мы на Картах</h3>
+
+        <!-- Кнопка 2GIS (сверху на десктопе и мобильных) -->
+        <a href="https://2gis.ru/vladivostok/firm/70000001104628462/tab/reviews?m=131.927441%2C43.129851%2F17.91&utm_source=widget_firm"
+           target="_blank"
+           class="review-btn review-btn--2gis">
+          <img src="../img/partner2.png" alt="2GIS" class="review-logo">
+          <span class="review-text">оставить отзыв</span>
+        </a>
+
+        <!-- Кнопка Яндекс.Карты (снизу) -->
+        <a href="https://yandex.com.tr/maps/org/master_grad_rf/242047769764/reviews/?ll=131.927140%2C43.129808&utm_content=more-reviews&utm_medium=reviews&utm_source=maps-reviews-widget&z=17"
+           target="_blank"
+           class="review-btn review-btn--yandex">
+          <img src="../img/yandexkarty.png" alt="Яндекс.Карты" class="review-logo">
+          <span class="review-text">оставить отзыв</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

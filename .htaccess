@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.мастер-град\.рф [NC]
+RewriteRule ^(.*)$ https://мастер-град.рф/$1 [R=301,L]

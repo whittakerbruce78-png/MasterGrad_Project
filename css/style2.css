@@ -1,0 +1,359 @@
+/* ==============================================
+   Стили блоков начало ( только стиль блоков) 
+   ============================================== */
+/* Светлые тематические блоки для главной страницы — стиль со скриншота */
+.light-theme-block {
+  background: #f8fbff;                /* очень светлый голубой */
+  border-radius: 12px;
+  padding: 25px 20px;
+  margin: 30px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e3f2fd;
+  text-align: left;
+}
+
+.light-theme-block h3 {
+  font-size: 22px;
+  color: #003087;
+  margin: 0 0 18px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.light-theme-block p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.light-theme-block ul,
+.light-theme-block ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 15px 0;
+}
+
+.light-theme-block li {
+  font-size: 16px;
+  margin-bottom: 12px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.light-theme-block li::before {
+  content: "•";
+  color: #0056b3;
+  font-size: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.light-theme-block .price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.light-theme-block .price-table th,
+.light-theme-block .price-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  font-size: 15px;
+}
+
+.light-theme-block .price-table th {
+  background: #e3f2fd;
+  color: #003087;
+  font-weight: bold;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .light-theme-block {
+    padding: 20px 15px;
+    margin: 20px 0;
+  }
+
+  .light-theme-block h3 {
+    font-size: 20px;
+  }
+
+  .light-theme-block p,
+  .light-theme-block li {
+    font-size: 15px;
+  }
+}
+/* Новый стиль для блока преимуществ — точно как на скриншоте */
+.advantages-section {
+  background: #f8fbff;              /* светлый голубой фон */
+  border-radius: 12px;
+  padding: 30px 25px;
+  margin: 35px 0;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e3f2fd;
+}
+
+.advantages-title {
+  font-size: 24px;
+  color: #003087;                   /* тёмно-синий */
+  text-align: center;
+  margin: 0 0 25px;
+  font-weight: 700;
+}
+
+.advantages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.advantage-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.advantage-marker {
+  color: #0056b3;
+  font-size: 22px;
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .advantages-section {
+    padding: 25px 18px;
+    margin: 25px 0;
+  }
+
+  .advantages-title {
+    font-size: 22px;
+  }
+
+  .advantage-item {
+    font-size: 15px;
+    gap: 12px;
+  }
+
+  .advantage-marker {
+    font-size: 20px;
+  }
+}
+/* <!-- СТИЛИ БЛОКОВ КОНЕЦ --> */
+
+/* <!-- СТИЛИ АККОРДОВ НАЧАЛО  --> */
+/* Аккордеон — раскрывающиеся блоки (все заголовки по центру, содержимое слева) */
+.accordion-wrapper {
+  margin: 35px 0;
+}
+
+.accordion-wrapper details {
+  background: #f8fbff;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e3f2fd;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.accordion-wrapper summary {
+  font-size: 24px;
+  color: #003087;
+  font-weight: 700;
+  padding: 20px 60px 20px 25px; /* место для стрелки справа */
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  list-style: none;
+  text-align: center;          /* ← ЗАГОЛОВОК ПО ЦЕНТРУ */
+  transition: background 0.3s ease;
+}
+
+.accordion-wrapper summary:hover {
+  background: #e3f2fd;
+}
+
+.accordion-wrapper details[open] summary {
+  background: #e3f2fd;
+  border-bottom: 1px solid #d0e4f5;
+}
+
+/* Стрелка в правом нижнем углу */
+.accordion-wrapper summary::after {
+  content: "▼";
+  position: absolute;
+  right: 25px;
+  bottom: 18px;
+  font-size: 20px;
+  color: #0056b3;
+  transition: transform 0.3s ease;
+}
+
+.accordion-wrapper details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+/* Содержимое аккордеона — текст слева */
+.accordion-content,
+.advantages-content,
+.faq-content,
+.price-content {
+  padding: 0 25px 25px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+  text-align: left;            /* ← СОДЕРЖИМОЕ СЛЕВА */
+}
+
+/* Стили для списков и таблиц внутри аккордеона */
+.accordion-content ul,
+.accordion-content ol,
+.advantages-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 15px 0;
+}
+
+.accordion-content li,
+.advantage-item {
+  font-size: 16px;
+  margin-bottom: 12px;
+  padding-left: 25px;
+  position: relative;
+  text-align: left;
+}
+
+.accordion-content li::before,
+.advantage-marker {
+  content: "•";
+  color: #0056b3;
+  font-size: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Таблицы внутри аккордеона */
+.accordion-content .price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.accordion-content .price-table th,
+.accordion-content .price-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  font-size: 15px;
+}
+
+.accordion-content .price-table th {
+  background: #e3f2fd;
+  color: #003087;
+  font-weight: bold;
+}
+
+/* Мобильная версия — стрелка крупнее, заголовок по центру */
+@media (max-width: 768px) {
+  .accordion-wrapper summary {
+    font-size: 20px;
+    padding: 18px 55px 18px 20px;
+    text-align: center;        /* заголовок по центру на мобиле */
+  }
+
+  .accordion-wrapper summary::after {
+    right: 20px;
+    bottom: 16px;
+    font-size: 24px;           /* крупнее для пальца */
+  }
+
+  .accordion-content,
+  .advantages-content,
+  .faq-content,
+  .price-content {
+    padding: 0 20px 20px;
+    font-size: 15px;
+    text-align: left;          /* содержимое слева */
+  }
+
+  .advantage-item,
+  .faq-answer {
+    font-size: 15px;
+    gap: 12px;
+  }
+
+  .advantage-marker {
+    font-size: 20px;
+  }
+
+  .accordion-content .price-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+/* <!-- СТИЛИ АККОРДОВ конец  --> */
+<!-- Адаптивность (вставь в конец <head> или в CSS) -->
+<style>
+  .dgis-reviews-block {
+    margin: 40px auto;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    max-width: 1200px;
+  }
+
+  .dgis-reviews-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+  }
+
+  .dgis-rating-medium {
+    text-align: center;
+  }
+
+  .dgis-reviews-big {
+    width: 100%;
+    max-width: 528px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+  }
+
+  .dgis-action {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .dgis-review-btn {
+    display: inline-block;
+    padding: 14px 40px;
+    background: #0066cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0,102,204,0.2);
+  }
+
+  @media (max-width: 991px) {
+    .dgis-reviews-big iframe {
+      height: 700px !important; /* чуть меньше на мобильных, чтобы не растягивался */
+    }
+  }
+</style>
