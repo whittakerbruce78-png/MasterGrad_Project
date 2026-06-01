@@ -1,44 +1,43 @@
-import re
 import os
-import base64
-import sys
+import re
 
-src_dir = base64.b64decode("0YHRgtC40YDQsNC70YzQvdGL0LUt0LzQsNGI0LjQvdGLLdCy0LvQsNC00LjQstC+0YHRgtC+0Lo=").decode('utf-8')
-irk_ru = base64.b64decode("0JjRgNC60YPRgtGB0Lo=").decode('utf-8')
-khv_ru = base64.b64decode("0KXQsNCx0LDRgNC+0LLRgdC6").decode('utf-8')
-vld_ru = base64.b64decode("0JLQu9Cw0LTQuNCy0L7RgdGC0L7Qug==").decode('utf-8')
-vlde_ru = base64.b64decode("0JLQu9Cw0LTQuNCy0L7RgdGC0L7QutC1").decode('utf-8')
+def fix_all():
+    base_path = '/MasterGrad_Project'
+    
+    for root, dirs, files in os.walk('.'):
+        for f in files:
+            fpath = os.path.join(root, f)
+            
+            if f.endswith('.html'):
+                with open(fpath, 'r', encoding='utf-8') as file:
+                    content = file.read()
+                
+                # 1. Fix absolute links to relative for GitHub Pages
+                # Find href="/something" and replace with href="/MasterGrad_Project/something"
+                # Careful not to replace href="//" or href="http://"
+                content = re.sub(r'href="/([^/][^"]*)"', r'href="' + base_path + r'/\1"', content)
+                content = re.sub(r'href="/"', r'href="' + base_path + r'/"', content)
+                
+                # 2. Add address back to Vladivostok pages map section
+                if 'владивосток' in fpath.lower() or 'index.html' in fpath:
+                    # Find the empty h3 before the map
+                    empty_h3 = r'<h3 style="font-size: 24px; color: #222; font-weight: 700; margin-top: 0; margin-bottom: 0px; text-align: center;">\s*</h3>'
+                    filled_h3 = r'<h3 style="font-size: 24px; color: #222; font-weight: 700; margin-top: 0; margin-bottom: 0px; text-align: center;">г. Владивосток, ул. Жигура, 26а</h3>'
+                    content = re.sub(empty_h3, filled_h3, content)
+                
+                with open(fpath, 'w', encoding='utf-8') as file:
+                    file.write(content)
+            
+            elif f == 'reviews.js':
+                with open(fpath, 'r', encoding='utf-8') as file:
+                    content = file.read()
+                
+                # Replace absolute image paths in JS
+                content = content.replace('"/img/', f'"{base_path}/img/')
+                
+                with open(fpath, 'w', encoding='utf-8') as file:
+                    file.write(content)
 
-print("Src dir:", repr(src_dir))
-
-def fix_city_page(city_folder, city_name_ru, city_map_file, is_irkutsk):
-    src_file = os.path.join(src_dir, 'index.html')
-    dest_file = os.path.join(city_folder, 'index.html')
-    
-    with open(src_file, 'r', encoding='utf-8') as f:
-        content = f.read()
-        
-    # Replace city names
-    content = content.replace(vlde_ru, city_name_ru + 'е')
-    content = content.replace(vld_ru, city_name_ru)
-    content = content.replace(vld_ru.lower(), city_name_ru.lower())
-    
-    # fix links
-    content = content.replace('/стиральные-машины-иркутск/', '/irkutsk-stiralnie-mashini/')
-    content = content.replace('/стиральные-машины-хабаровск/', '/khabarovsk-stiralnie-mashini/')
-    
-    # Replace map block
-    with open(city_map_file, 'r', encoding='utf-8') as f:
-        map_block = f.read()
-    
-    content = re.sub(r'<!-- БЛОК Карта.*?(\n.*?)?</section>', map_block, content, flags=re.DOTALL)
-    
-    # Also update the title to match what they expect, the src title has "в Первомайском районе" because I'm using... wait, no, the root index.html of стиральные-машины-владивосток doesn't have "в Первомайском районе", it is the general washing machine page.
-    
-    with open(dest_file, 'w', encoding='utf-8') as f:
-        f.write(content)
-    
-    print(f"Fixed {dest_file}")
-
-fix_city_page('irkutsk-stiralnie-mashini', irk_ru, 'irk_map.txt', True)
-fix_city_page('khabarovsk-stiralnie-mashini', khv_ru, 'khv_map.txt', False)
+if __name__ == '__main__':
+    fix_all()
+    print("Fixes applied successfully.")
