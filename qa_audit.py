@@ -20,6 +20,9 @@ def run_qa_audit():
     for root, dirs, files in os.walk('.'):
         for f in files:
             if f.endswith('.html'):
+                # Пропускаем служебные и архивные файлы
+                if f in ['original.html', 'preindex.html', 'reviews.html'] or f.startswith('yandex_'):
+                    continue
                 fpath = os.path.join(root, f)
                 stats['total_pages'] += 1
                 try:
