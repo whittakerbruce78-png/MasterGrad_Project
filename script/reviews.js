@@ -150,6 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     const reviewsContainer = document.getElementById("reviews-container");
+    if (!reviewsContainer) return;
 
     reviews.forEach(review => {
         const reviewCard = document.createElement("div");
