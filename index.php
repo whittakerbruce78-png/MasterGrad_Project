@@ -520,7 +520,7 @@
         <noindex><a href="mailto:support@beget.com" rel="nofollow">support@beget.com</a></noindex>
         <noindex><a href="mailto:bills@beget.com" rel="nofollow">bills@beget.com</a></noindex>
         <noindex><a href="mailto:manager@beget.com" rel="nofollow">manager@beget.com</a></noindex>
-        <noindex><a href="tg://resolve?domain=begetbot" rel="nofollow">@begetbot</a></noindex>
+        <noindex><a href="./tg://resolve?domain=begetbot" rel="nofollow">@begetbot</a></noindex>
         <noindex><a href="https://join.skype.com/bot/ceda3526-d09b-4157-b6f0-91a646073c7e?add" target="_blank" rel="nofollow">Добавить в контакты</a></noindex>
       </div>
       <div class="footer-col">
@@ -592,9 +592,9 @@
       <div><%- index + 1 %>. <%- item.text %></div>
       <% if (item.image) { %>
         <noindex>
-          <a href="<%- item.image.normal %>" data-srcset="<%- item.image.normal %> 1x, <%- item.image.retina %> 2x"
+          <a href="./<%- item.image.normal %>" data-srcset="<%- item.image.normal %> 1x, <%- item.image.retina %> 2x"
              data-fancybox="instruction" data-caption="<%- item.text %>" rel="nofollow">
-            <img src="<%- item.image.normal %>" srcset="<%- item.image.normal %> 1x, <%- item.image.retina %> 2x" width="99"
+            <img src="./<%- item.image.normal %>" srcset="<%- item.image.normal %> 1x, <%- item.image.retina %> 2x" width="99"
                  alt="<%- item.text %>">
           </a>
         </noindex>
@@ -727,7 +727,7 @@
       <noindex><a href="mailto:support@beget.com" rel="nofollow">support@beget.com</a></noindex>
       <noindex><a href="mailto:bills@beget.com" rel="nofollow">bills@beget.com</a></noindex>
       <noindex><a href="mailto:manager@beget.com" rel="nofollow">manager@beget.com</a></noindex>
-      <noindex><a href="tg://resolve?domain=begetbot" rel="nofollow">@begetbot</a></noindex>
+      <noindex><a href="./tg://resolve?domain=begetbot" rel="nofollow">@begetbot</a></noindex>
       <noindex><a href="https://join.skype.com/bot/ceda3526-d09b-4157-b6f0-91a646073c7e?add" target="_blank" rel="nofollow">Добавить в контакты</a></noindex>
     </div>
     <div class="footer-col">

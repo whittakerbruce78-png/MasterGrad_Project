@@ -63,7 +63,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert("Заявка успешно отправлена!");
                 phoneInput.value = ""; // Очистка поля
                 document.getElementById("popup").style.display = "none"; // Закрытие всплывающего окна
-                window.location.href = "../спасибо"; // Замени на нужный URL
+                
+                // Find relative prefix dynamically
+                const scripts = document.getElementsByTagName('script');
+                let relPrefix = './';
+                for (let i = 0; i < scripts.length; i++) {
+                    const src = scripts[i].getAttribute('src');
+                    if (src && src.includes('popup.js')) {
+                        const idx = src.indexOf('script/popup.js');
+                        if (idx !== -1) {
+                            relPrefix = src.substring(0, idx);
+                        }
+                        break;
+                    }
+                }
+                
+                window.location.href = relPrefix + "spasibo/"; // Redirect dynamically to spasibo page
             } else {
                 throw new Error("Ошибка отправки");
             }

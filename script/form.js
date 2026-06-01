@@ -36,7 +36,22 @@ document.getElementById("call-master-form").addEventListener("submit", async fun
         if (response.ok) {
             alert("Заявка успешно отправлена!");
             phoneInput.value = ""; // Очистка поля
-            window.location.href = "../спасибо"; // Замени на нужный URL
+            
+            // Find the relative prefix dynamically
+            const scripts = document.getElementsByTagName('script');
+            let relPrefix = './';
+            for (let i = 0; i < scripts.length; i++) {
+                const src = scripts[i].getAttribute('src');
+                if (src && src.includes('form.js')) {
+                    const idx = src.indexOf('script/form.js');
+                    if (idx !== -1) {
+                        relPrefix = src.substring(0, idx);
+                    }
+                    break;
+                }
+            }
+            
+            window.location.href = relPrefix + "spasibo/"; // Redirect dynamically to spasibo page
         } else {
             throw new Error("Ошибка отправки");
         }
