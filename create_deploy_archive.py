@@ -3,10 +3,10 @@ import zipfile
 
 folders_to_include = [
     'css', 'img', 
-    'irkutsk-holodilniki', 'irkutsk-posudomoechnie-mashini', 'irkutsk-stiralnie-mashini', 'irkutsk-vodonagrevateli', 
-    'khabarovsk-holodilniki', 'khabarovsk-posudomoechnie-mashini', 'khabarovsk-stiralnie-mashini', 'khabarovsk-vodonagrevateli', 
+    'холодильники-иркутск', 'посудомоечные-машины-иркутск', 'стиральные-машины-иркутск', 'водонагреватели-иркутск', 
+    'холодильники-хабаровск', 'посудомоечные-машины-хабаровск', 'стиральные-машины-хабаровск', 'водонагреватели-хабаровск', 
     'script', 'spasibo', 
-    'vladivostok-holodilniki', 'vladivostok-posudomoechnie-mashini', 'vladivostok-stiralnie-mashini', 'vladivostok-vodonagrevateli'
+    'холодильники-владивосток', 'посудомоечные-машины-владивосток', 'стиральные-машины-владивосток', 'водонагреватели-владивосток'
 ]
 
 files_to_include = [

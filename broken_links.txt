@@ -1,5 +1,5 @@
 Total HTML files checked: 74
-Total internal links checked: 3732
+Total internal links checked: 3962
 Total unique broken links found: 0
 
 --- BROKEN LINKS SUMMARY ---
